@@ -58,6 +58,10 @@ public protocol Request {
     /// `intercept(object:urlResponse:)` if it does not throw any error.
     /// - Throws: `Error`
     func response(from object: Any, urlResponse: HTTPURLResponse) throws -> Response
+    
+    /// Builds `Response` from response `Data`.
+    /// - Throws: `ResponseError`, `Error`
+    func parse(data: Data, urlResponse: HTTPURLResponse) throws -> Response
 }
 
 public extension Request {
